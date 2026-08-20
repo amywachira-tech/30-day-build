@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Jordan Kim",
+    "company": "Nova Energy",
+    "contact": {
+      "email": "jordan.kim@novaenergy.com",
+      "phone": "555-0101"
+    }
+  },
+  {
+    "name": "Sam Osei",
+    "company": "Solaris Energy",
+    "contact": {
+      "email": "sam.osei@solarisenergy.com",
+      "phone": "555-0102"
+    }
+  }
+]

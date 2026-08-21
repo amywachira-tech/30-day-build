@@ -2,26 +2,40 @@
   {
     "name": "Jordan Kim",
     "company": "Nova Energy",
-    "score": 8
-  },
-  {
-    "name": "Alex Reyes",
-    "company": "Delta Freight",
-    "score": 4
+    "score": 9
   },
   {
     "name": "Sam Osei",
     "company": "Solaris Energy",
-    "score": 9
+    "score": 6
   },
   {
-    "name": "Priya Nair",
-    "company": "Northwind Trading",
-    "score": 3
+    "name": "Jane Eyre",
+    "company": "SupportLogic",
+    "score": 5
   },
   {
-    "name": "Chen Wei",
-    "company": "Vertex Energy",
+    "name": "John Doe",
+    "company": "Drip",
     "score": 7
+  },
+  {
+    "name": "Jamie Dornan",
+    "company": "Hudl",
+    "score": 4
+  },
+  {
+    "name": "Claire Fraser",
+    "company": "Evergreen",
+    "score": "eight"
+  },
+  {
+    "name": "Kimmy Schmidt",
+    "company": "Titus"
+  },
+  {
+    "name": "",
+    "company": "Elena Energy",
+    "score": 9
   }
 ]

@@ -1,5 +1,7 @@
 import json
 
+import json
+
 prospects = [
     {"name": "Jordan Kim", "company": "Nova Energy",
      "contact": {"email": "jordan.kim@novaenergy.com", "phone": "555-0101"}},

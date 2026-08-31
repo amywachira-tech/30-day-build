@@ -1,0 +1,96 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "82aa1f62-6690-4759-84a5-3909e46484f7",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://catfact.ninja/fact",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "f5b432ac-82bb-4deb-a307-fd26860f27ec",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5206042a-c36a-4c69-a1e1-d00361b0da8b",
+              "name": "cat_fact",
+              "value": "={{ $json.fact }}",
+              "type": "string"
+            },
+            {
+              "id": "0377598f-8c32-4afd-9fd5-8cee82238782",
+              "name": "fact_length",
+              "value": "={{ $json.length }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        448,
+        0
+      ],
+      "id": "e32a0a94-c281-4182-a0a6-6367eb02cdc7",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "fd4d4755-4ebc-4b7c-909f-25d67dbba056",
+  "meta": {
+    "instanceId": "1e95a65956f6046e5961610cad678fece8f523344e3f332b86834cc57a4a8a64"
+  },
+  "nodeGroups": [],
+  "id": "mhtcztVdbUoURNRo",
+  "tags": []
+}

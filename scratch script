@@ -1,1 +1,0 @@
-open("doesnt_exist.json", "r")

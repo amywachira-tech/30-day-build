@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "reply_text": "Hey, this looks interesting, can we grab 15 minutes next week?",
+    "correct_tag": "interested",
+    "predicted_tag": "interested",
+    "model_reasoning": "Recipient explicitly wants to schedule a meeting to discuss further.",
+    "is_correct": true,
+    "note": "easy case, explicit ask for a call"
+  },
+  {
+    "id": 2,
+    "reply_text": "Please remove me from this list.",
+    "correct_tag": "not_interested",
+    "predicted_tag": "not_interested",
+    "model_reasoning": "Explicit unsubscribe request indicating no interest in further communication.",
+    "is_correct": true,
+    "note": "easy case, explicit opt-out"
+  },
+  {
+    "id": 3,
+    "reply_text": "I'm out of office until the 22nd. For urgent matters contact my colleague at ops@company.com.",
+    "correct_tag": "not_relevant",
+    "predicted_tag": "not_relevant",
+    "model_reasoning": "This is an automated out-of-office reply with no engagement on the outreach topic.",
+    "is_correct": true,
+    "note": "easy case, standard auto-reply"
+  },
+  {
+    "id": 4,
+    "reply_text": "Not a priority for us right now, maybe check back in Q3.",
+    "correct_tag": "needs_follow_up",
+    "predicted_tag": "needs_follow_up",
+    "model_reasoning": "Deferred interest with a specific timeframe to reconnect in Q3.",
+    "is_correct": true,
+    "note": "easy case, explicit deferral with a timeframe"
+  },
+  {
+    "id": 5,
+    "reply_text": "interesting.",
+    "correct_tag": "needs_follow_up",
+    "predicted_tag": "needs_follow_up",
+    "model_reasoning": "Single word response is ambiguous and requires clarification of their level of interest.",
+    "is_correct": true,
+    "note": "hard case, single word, no explicit action requested. Ambiguous between interested and needs_follow_up, but no next step was proposed so it can't be scored as genuinely interested"
+  },
+  {
+    "id": 6,
+    "reply_text": "We actually just signed with a competitor last month, but reach out again toward renewal time.",
+    "correct_tag": "needs_follow_up",
+    "predicted_tag": "needs_follow_up",
+    "model_reasoning": "They're currently under contract with a competitor but open to discussion at renewal time.",
+    "is_correct": true,
+    "note": "hard case, sounds negative on the surface (not_interested) but contains an explicit future opening, which is the actual defining feature of needs_follow_up"
+  },
+  {
+    "id": 7,
+    "reply_text": "Who is this? I don't recall signing up for anything.",
+    "correct_tag": "not_relevant",
+    "predicted_tag": "not_interested",
+    "model_reasoning": "Recipient doesn't recognize the outreach and appears annoyed, indicating they want no further contact.",
+    "is_correct": false,
+    "note": "hard case, not an auto-reply and not explicitly hostile, but the recipient has no context, this is a targeting/list-quality failure not a sentiment"
+  },
+  {
+    "id": 8,
+    "reply_text": "Thanks for reaching out. Can you send over pricing and a case study before we talk?",
+    "correct_tag": "interested",
+    "predicted_tag": "interested",
+    "model_reasoning": "Requesting specific materials (pricing and case study) indicates genuine interest in learning more before scheduling a conversation.",
+    "is_correct": true,
+    "note": "hard case, no call requested, but concrete forward action (pricing/case study) makes this genuine interest, not a stall"
+  },
+  {
+    "id": 9,
+    "reply_text": "lol no",
+    "correct_tag": "not_interested",
+    "predicted_tag": "not_interested",
+    "model_reasoning": "Clear rejection expressed dismissively.",
+    "is_correct": true,
+    "note": "hard case, informal/short phrasing model may not handle as cleanly as a formal decline"
+  },
+  {
+    "id": 10,
+    "reply_text": "This isn't really my department, you'd want to talk to our ops lead, Jamie.",
+    "correct_tag": "not_relevant",
+    "predicted_tag": "not_relevant",
+    "model_reasoning": "Wrong person, redirecting to someone else in the organization.",
+    "is_correct": true,
+    "note": "hard case, polite and forward-looking in tone but the correct tag is about targeting the wrong person, not sentiment toward the offer itself"
+  },
+  {
+    "id": 11,
+    "reply_text": "We looked at something similar 6 months ago and it didn't work out for unrelated reasons. Open to hearing more though.",
+    "correct_tag": "interested",
+    "predicted_tag": "interested",
+    "model_reasoning": "Past attempt failed for unrelated reasons but explicitly open to hearing more now.",
+    "is_correct": true,
+    "note": "hard case, opens with a negative-sounding history but explicitly states current openness"
+  },
+  {
+    "id": 12,
+    "reply_text": "Stop emailing me.",
+    "correct_tag": "not_interested",
+    "predicted_tag": "not_interested",
+    "model_reasoning": "Explicit request to stop contact indicates clear rejection.",
+    "is_correct": true,
+    "note": "easy case, blunt but unambiguous"
+  },
+  {
+    "id": 13,
+    "reply_text": "Can you loop in my manager, Sarah, on this thread? She handles vendor decisions.",
+    "correct_tag": "interested",
+    "predicted_tag": "needs_follow_up",
+    "model_reasoning": "Recipient is redirecting to a decision-maker which shows potential interest but requires additional contact.",
+    "is_correct": false,
+    "note": "hard case, no direct enthusiasm expressed, but forwarding to the actual decision-maker is a genuine positive signal, distinct from case 10 where the redirect was a dead end"
+  },
+  {
+    "id": 14,
+    "reply_text": "",
+    "correct_tag": "not_relevant",
+    "predicted_tag": "not_relevant",
+    "model_reasoning": "Empty reply body, handled before API call.",
+    "is_correct": true,
+    "note": "edge case, empty reply body, tests whether the script handles blank input without crashing rather than what tag is 'correct' in a sentiment sense"
+  },
+  {
+    "id": 15,
+    "reply_text": "We budgeted for something like this next fiscal year starting April, circle back then and I'll bring it to the team.",
+    "correct_tag": "needs_follow_up",
+    "predicted_tag": "needs_follow_up",
+    "model_reasoning": "Clear timeline given for future interest with specific month to reconnect.",
+    "is_correct": true,
+    "note": "hard case, genuinely positive in tone, easy for the model to overclassify as interested, but there is no current action available, only a future one"
+  }
+]

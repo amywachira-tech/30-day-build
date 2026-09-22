@@ -1,0 +1,85 @@
+{
+  "Meridian Sensing (clean close)": {
+    "pitch_intensity_fit": {
+      "rating": "strong",
+      "reasoning": "Rep proposed only a 30-minute demo, matching the discretion-level budget confirmed on the call. No overreach."
+    },
+    "trust_framing_placement": {
+      "rating": "poor",
+      "reasoning": "No trust, security, or compliance content was actually delivered on this call. The prospect's line about the quality lead having 'questions about the compliance reporting format' is a forward-looking flag for the NEXT call, not framing delivered now. Per the rubric's own definition, never-addressed maps to poor, not needs_work."
+    },
+    "pain_reflected_back": {
+      "rating": "strong",
+      "reasoning": "Rep explicitly reflected the detection-speed problem back in different words than the prospect used, showing real synthesis, not just repetition."
+    },
+    "time_discipline": {
+      "rating": "strong",
+      "reasoning": "Call moved efficiently from discovery to a concrete, dated next step with named attendees."
+    },
+    "claim_discipline": {
+      "rating": "strong",
+      "reasoning": "No capability, pricing, or availability claims were made beyond what the conversation warranted."
+    },
+    "decision_maker_path": {
+      "rating": "needs_work",
+      "reasoning": "The prospect has discretion 'up to a point,' past which VP of Ops sign-off is required, but the deal size relative to that threshold was never established, and no step was set for looping the VP in if needed. This is genuinely unresolved, not confirmed."
+    },
+    "overall_call_outcome": "advancing"
+  },
+
+  "Harrow Analytics (clean loss)": {
+    "pitch_intensity_fit": {
+      "rating": "strong",
+      "reasoning": "Rep proposed nothing further once disqualifying information surfaced. Correctly matched pitch to zero remaining qualification."
+    },
+    "trust_framing_placement": {
+      "rating": "poor",
+      "reasoning": "No trust or compliance content was ever raised. Never addressed."
+    },
+    "pain_reflected_back": {
+      "rating": "strong",
+      "reasoning": "Rep reflected the core issue back accurately: failures catching the plant off guard despite a preventive schedule."
+    },
+    "time_discipline": {
+      "rating": "strong",
+      "reasoning": "Rep actively ended pursuit the moment disqualification was clear, rather than continuing a call with no real path."
+    },
+    "claim_discipline": {
+      "rating": "strong",
+      "reasoning": "No overpromising; rep stayed in discovery until disqualification was confirmed."
+    },
+    "decision_maker_path": {
+      "rating": "strong",
+      "reasoning": "Caveat: this dimension is somewhat moot on a dead deal, there is no path to build because none exists (corporate already signed a competitor). Rating it strong credits the rep for correctly recognizing a dead end rather than for successfully mapping a live path, those are different achievements the rubric doesn't currently distinguish."
+    },
+    "overall_call_outcome": "disqualified"
+  },
+
+  "Fenwick Trials (ambiguous stall)": {
+    "pitch_intensity_fit": {
+      "rating": "strong",
+      "reasoning": "Rep offered a modest, appropriate deliverable (cost/risk documentation) rather than pushing for a commitment the prospect had already said she couldn't make."
+    },
+    "trust_framing_placement": {
+      "rating": "poor",
+      "reasoning": "No trust or compliance content was ever raised on this call. Never addressed, same as the other two transcripts."
+    },
+    "pain_reflected_back": {
+      "rating": "strong",
+      "reasoning": "Rep named the visibility problem explicitly and later summarized both the time cost and the sponsor-trust risk in the prospect's own terms."
+    },
+    "time_discipline": {
+      "rating": "strong",
+      "reasoning": "Rep named the structural blocker directly once it surfaced and proposed a realistic, low-pressure follow-up instead of forcing an artificial close."
+    },
+    "claim_discipline": {
+      "rating": "strong",
+      "reasoning": "No capability or timeline promises made; rep explicitly acknowledged what she could not control."
+    },
+    "decision_maker_path": {
+      "rating": "poor",
+      "reasoning": "The actual approvers (IT director, CFO) were never named as individuals or contacted; the rep has no concrete step to reach them, only a plan to build an internal case the prospect herself might use someday."
+    },
+    "overall_call_outcome": "stalled"
+  }
+}

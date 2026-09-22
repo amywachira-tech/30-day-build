@@ -1,0 +1,48 @@
+TRANSCRIPT 2 — CLEAN LOSS (real disqualifier surfaces)
+Company (fictional): Harrow Analytics
+Product: Predictive maintenance software for industrial equipment (vibration/thermal sensor data plus ML models predicting failure before it happens, targeted at plant operations teams)
+Prospect: Plant Operations Manager at a mid-size manufacturing site
+Outcome: Deal does not advance — no budget authority, timing is wrong, and a competitor is already mid-implementation
+
+---
+
+SR: Hi Marcus, thanks for hopping on. I saw you downloaded our predictive maintenance whitepaper last month, what prompted that?
+
+Prospect: Yeah, we've been having some unplanned downtime on a couple of our older CNC lines, wanted to see what's out there. I'll be upfront though, I'm not sure how far this can go on my end.
+
+SR: No problem, let's figure that out together. Tell me about the downtime first, how often, how costly?
+
+Prospect: Maybe once a quarter something fails hard enough to stop the line for a day or two. Each time it's probably $30,000 to $50,000 in lost output, plus rush parts.
+
+SR: That adds up. What have you tried so far to get ahead of it?
+
+Prospect: Basic preventive maintenance schedules, nothing predictive. We inspect on a calendar, not based on actual equipment condition.
+
+SR: Got it, so the failures are still catching you off guard even with a schedule in place.
+
+Prospect: Right, because the schedule doesn't know what's actually happening inside the machine between inspections.
+
+SR: That's exactly the gap we're built for. Can I ask, who else at the plant deals with this, and who ultimately decides on new software purchases here?
+
+Prospect: That's actually the thing. I run day-to-day ops, but anything over about $15,000 has to go through our corporate procurement team, and honestly, capital software spend gets decided at the group level, not the plant level. I can champion something, but I don't sign off on it.
+
+SR: Understood, that's useful to know early. Has corporate looked at anything in this space already?
+
+Prospect: Yeah, actually, that's the other thing I should probably have led with. Corporate signed a group-wide deal with one of your competitors about four months ago, it's being rolled out plant by plant. Ours is scheduled for Q2 next year.
+
+SR: Ah, so there's already a selected vendor moving through implementation.
+
+Prospect: Right. I downloaded your whitepaper honestly more out of curiosity, wanted to see how our incoming vendor compares to what else exists. I probably should have said that up front, sorry.
+
+SR: No need to apologize, I'd rather know now than three calls in. Out of curiosity, is there any flexibility in that rollout, or is it locked in at the corporate level?
+
+Prospect: Locked in. I don't have the authority to run a parallel evaluation, and honestly even if I did, corporate wouldn't want to unwind a signed group contract for one plant.
+
+SR: That's fair. I appreciate you being straight with me. Given that, I don't think it makes sense to keep moving forward on a demo right now, since there's no real path to a deal on your end before that rollout happens.
+
+Prospect: Yeah, agreed. If the corporate vendor doesn't work out for some reason down the line, I'd probably reach back out, but I can't promise anything.
+
+SR: Understood. I'll leave you with the whitepaper contact info in case that changes, and I won't add you to an active follow-up sequence given where things stand. Appreciate your honesty today, it saved us both time.
+
+Prospect: Appreciate that, yeah.
+</content>

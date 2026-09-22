@@ -1,0 +1,50 @@
+TRANSCRIPT 1 — CLEAN CLOSE
+Company (fictional): Meridian Sensing
+Product: IoT-based cold chain monitoring for pharmaceutical logistics (temperature/humidity sensors on shipping containers, real-time alerting, compliance reporting for regulated cold chain)
+Prospect: VP of Supply Chain at a mid-size pharmaceutical distributor
+Outcome: Deal advances, demo booked, clear next step
+
+---
+
+SR: Hi Daniel, thanks for making the time, I know Q3 close is probably eating your calendar right now.
+
+Prospect: No problem, glad to jump on. Saw your name come up after our head of quality mentioned Meridian at a conference, figured I'd hear you out.
+
+SR: Appreciate that. Before I say anything about us, I'd love to understand where things stand today. How are you currently tracking temperature compliance across your shipments?
+
+Prospect: Honestly, it's a mix. We've got data loggers in most trailers, the kind you download after the fact and pull a report from. Works fine until it doesn't.
+
+SR: When you say until it doesn't, what does that actually look like?
+
+Prospect: We had an excursion last winter, a reefer unit failed on a route to one of our regional hubs. Nobody knew until the driver unloaded and the logger showed six hours above threshold. We had to quarantine and eventually destroy about $140,000 of product.
+
+SR: That's a real number. Was that an isolated incident, or has it happened more than once?
+
+Prospect: Twice in eighteen months that we know of. I say "that we know of" because with passive loggers, if nobody catches it fast, sometimes product ships out before anyone reviews the data.
+
+SR: So there's actually a detection-speed problem underneath the temperature problem.
+
+Prospect: Yeah, that's exactly it. The loggers tell us the truth eventually. We need to know while it's still fixable, not six hours after the fact.
+
+SR: Got it. Who else deals with the fallout when something like that happens? Is it just your team, or does it ripple elsewhere?
+
+Prospect: Quality has to file the deviation report, that goes to our regulatory affairs team, and if it's serious enough it touches our relationship with the manufacturer whose product we lost. So it's not just an ops cost, it's a trust cost with our upstream partners.
+
+SR: How much of your volume runs through lanes where this kind of failure would actually matter, versus lower-risk shipments?
+
+Prospect: Maybe 60% of what we move is temperature-sensitive at all, and of that, a third is the kind of high-value biologic where a failure is a real problem, not just a paperwork headache.
+
+SR: If I understand right, real-time alerting on that higher-risk third would address the actual pain, not necessarily every shipment you run.
+
+Prospect: Correct. We don't need to gold-plate everything, we need to stop the expensive failures.
+
+SR: That's helpful, because it changes how I'd scope this for you rather than just quoting a blanket per-unit price. Can I ask, is there budget currently allocated for this kind of thing, or would this be a new line item you'd have to build a case for?
+
+Prospect: We actually have budget sitting in a supply chain resilience initiative from this year, it just hasn't been assigned to a specific vendor yet. I have discretion up to a point, past that it goes to my VP of Ops for sign-off, but he trusts my read on this stuff.
+
+SR: Good to know. Based on what you've shared, I'd like to show you specifically how the real-time alerting and the compliance reporting work, using a scenario close to the one you described, a reefer excursion mid-route. Would a 30-minute technical demo with your quality lead included make sense as a next step?
+
+Prospect: Yeah, that works. Let's get him on the calendar too, he'll have questions about the compliance reporting format specifically.
+
+SR: Perfect, I'll send a few times this week and next.
+</content>

@@ -1,0 +1,37 @@
+TRANSCRIPT 5 — ADVERSARIAL, ROUND 2
+Company (fictional): Cartwell Logistics Intelligence
+Product: AI-assisted freight rate benchmarking and load-matching platform for freight brokerages (pulls live lane rates, flags underpriced loads, recommends carrier matches)
+Prospect: Derek, Director of Brokerage Operations at a mid-size freight brokerage
+
+---
+
+SR: Hi Derek, thanks for taking the call. I know rate volatility's been rough on brokerages this quarter.
+
+Prospect: It has. Our margins have been getting squeezed and honestly a lot of it comes down to how we're pricing loads in the first place.
+
+SR: Tell me more about that.
+
+Prospect: So right now, when a load comes in, our brokers manually check about five different load boards before they'll commit to a rate. It takes time, and half the time they're still guessing at what the market rate actually is versus just matching whatever the last board showed them. We're leaving margin on the table because of it.
+
+SR: Yeah, that's a super common problem in freight, honestly. A lot of brokerages we talk to are dealing with something similar.
+
+Prospect: Right, I figured we're not the only ones.
+
+SR: So walking through the platform, it pulls live lane rates automatically and flags when a load's priced below market, so your brokers get a real-time benchmark instead of checking boards manually.
+
+Prospect: That would save a lot of time. Quick question though, our carrier and rate data is pretty sensitive competitively, how does that get handled once it's in your system?
+
+SR: Good question. So the platform integrates directly with your TMS, it pulls the data straight from there, so nothing really changes about how your team already handles carrier information day to day. It just plugs into your existing workflow.
+
+Prospect: Okay, that's good to know.
+
+SR: On the budget side, is this something you'd be able to move on, or does it need sign-off above you?
+
+Prospect: I handle vendor selection for tools under about $50,000 myself. Above that it typically sails through with my VP's blessing anyway, since he mostly defers to me on operational tooling like this.
+
+SR: Got it, that's helpful context. Based on everything you've shared, I think a pilot makes a lot of sense, let's get something scoped for your team.
+
+Prospect: Yeah, let's do that. Send me something and we'll figure out timing.
+
+SR: Will do, I'll follow up this week.
+</content>

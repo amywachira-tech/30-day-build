@@ -1,0 +1,52 @@
+TRANSCRIPT 3 — AMBIGUOUS STALL (real interest, unresolved blocker, no clean outcome)
+Company (fictional): Fenwick Trials
+Product: Clinical trial management software (patient recruitment tracking, site coordination, regulatory document workflows for mid-size CROs and pharma sponsors)
+Prospect: Director of Clinical Operations at a mid-size CRO
+Outcome: Genuine interest confirmed, but an internal blocker surfaces that neither party can resolve on the call — no clear next step, no clear no
+
+---
+
+SR: Hi Priya, thanks for making time. Last time we spoke you mentioned patient recruitment tracking was the main pain point, has anything changed since then?
+
+Prospect: Not really, if anything it's gotten more pressing. We're running six trials in parallel right now and recruitment status lives in about four different spreadsheets depending on which site coordinator is updating it.
+
+SR: That sounds like a real visibility problem. When you need a cross-trial view, what do you actually do today?
+
+Prospect: Honestly, I email each site coordinator and ask them to send me their latest numbers. It takes two, sometimes three days to get a full picture, and by the time I have it, it's already stale.
+
+SR: How often do you need that full picture?
+
+Prospect: At minimum monthly for sponsor reporting, but ideally I'd want it any time a sponsor calls and asks how we're tracking, which happens more than monthly.
+
+SR: Given that, what would a real fix actually be worth to you, in terms of time or risk?
+
+Prospect: Time, definitely. I'd guess I spend six to eight hours a month just chasing numbers that should already exist somewhere centralized. And there's a trust cost too, when a sponsor catches us with stale numbers, it doesn't look great.
+
+SR: That's a strong case on paper. Where does this sit relative to other priorities for your team right now?
+
+Prospect: Honestly, high, I'm not going to pretend otherwise. The problem is real and I'd genuinely like to fix it.
+
+SR: I'm hearing real urgency, so let me ask directly, what would need to be true for this to move forward?
+
+Prospect: This is where it gets complicated. We're mid-renewal on our existing CTMS contract, it's not one we love, but it's bundled with our eTMF system and our billing platform in a single enterprise agreement. Pulling recruitment tracking out into a separate tool means either renegotiating that bundle or running two systems that don't talk to each other.
+
+SR: Do you know who owns that bundled contract decision?
+
+Prospect: That's actually part of the issue, it's not really me. It's a joint decision between our IT director and our CFO, since it's a multi-year enterprise deal with real financial penalties for early termination on any piece of it. I can make the case that recruitment tracking specifically isn't served well by the bundle, but I don't control the timeline or the contract terms.
+
+SR: When does that contract come up for renewal or renegotiation?
+
+Prospect: Eighteen months out, roughly. Could be sooner if we can show a strong enough case that the current system is actively costing us something measurable, which, honestly, our conversation today might help me build.
+
+SR: So the interest and the pain are both real, but there's a structural blocker that neither of us can resolve on this call.
+
+Prospect: Exactly. I don't want to string you along and act like this is closing soon, because it might genuinely take that full eighteen months, or it might accelerate if I can build a strong enough internal case. I just don't know yet.
+
+SR: I appreciate you being direct about that instead of a soft maybe. Would it help if I put together something concrete, real numbers on the time cost and the sponsor-trust risk you mentioned, that you could actually use internally to build that case?
+
+Prospect: That would genuinely help, yeah. No promises on timeline from my side, but that's useful regardless of what happens with the contract.
+
+SR: Understood. I'll put that together and check back in a few weeks rather than push for a next step that isn't real yet.
+
+Prospect: That works for me.
+</content>

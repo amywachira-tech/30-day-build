@@ -1,0 +1,142 @@
+{
+  "Meridian Sensing (clean close)": {
+    "pitch_intensity_fit": {
+      "rating": "strong",
+      "evidence": "Rep confirmed budget exists, discretion level, and decision-making authority before proposing a 30-minute technical demo scoped to the specific pain, matching the qualification level."
+    },
+    "trust_framing_placement": {
+      "rating": "needs_work",
+      "evidence": "No proactive risk, security, or compliance framing was introduced early; the rep only responded to the prospect's mention of regulatory affairs and compliance reporting reactively."
+    },
+    "pain_reflected_back": {
+      "rating": "strong",
+      "evidence": "Rep explicitly reflected back 'So there's actually a detection-speed problem underneath the temperature problem' after the prospect described the delayed logger discovery issue."
+    },
+    "time_discipline": {
+      "rating": "strong",
+      "evidence": "Rep moved directly to a clear close with a concrete next step (demo with quality lead included) once qualification and pain were confirmed, no unnecessary drift."
+    },
+    "claim_discipline": {
+      "rating": "strong",
+      "evidence": "Rep made no unsupported claims about capabilities, pricing, or availability; stayed grounded in what was confirmed and scoped appropriately to the validated pain."
+    },
+    "decision_maker_path": {
+      "rating": "strong",
+      "evidence": "Rep confirmed the prospect has discretion and that his VP of Ops would sign off past a threshold, and the prospect explicitly stated the VP trusts his read, establishing a clear approval path."
+    },
+    "overall_call_outcome": "advancing",
+    "outcome_reasoning": "Deal progressed to a concrete next step with the right stakeholders, budget confirmed, pain validated, and decision-making authority mapped."
+  },
+  "Harrow Analytics (clean loss)": {
+    "pitch_intensity_fit": {
+      "rating": "strong",
+      "evidence": "The rep appropriately did not push for a demo or next step once learning the prospect lacked budget authority and a competitor was already locked in at the corporate level."
+    },
+    "trust_framing_placement": {
+      "rating": "poor",
+      "evidence": "No security, compliance, risk, or trust framing was attempted at any point; the disqualifiers surfaced before the rep could establish credibility beyond basic discovery."
+    },
+    "pain_reflected_back": {
+      "rating": "strong",
+      "evidence": "The rep explicitly reflected back that 'the failures are still catching you off guard even with a schedule in place,' restating the prospect's pain in clearer terms."
+    },
+    "time_discipline": {
+      "rating": "strong",
+      "evidence": "The rep actively closed the call as soon as the disqualifying factors were clear, stating 'I don't think it makes sense to keep moving forward on a demo right now' rather than letting it drift."
+    },
+    "claim_discipline": {
+      "rating": "strong",
+      "evidence": "No capabilities, pricing, or availability claims were made; the rep stuck to discovery and qualification without overpromising or speculating."
+    },
+    "decision_maker_path": {
+      "rating": "needs_work",
+      "evidence": "The rep confirmed the corporate procurement team holds authority but did not explore any concrete step to reach them or ask for an introduction, leaving the path unaddressed."
+    },
+    "overall_call_outcome": "disqualified",
+    "outcome_reasoning": "The prospect explicitly stated they lack budget authority, a competitor is already locked in at the corporate level, and there is no flexibility to change the rollout, with no viable path forward identified."
+  },
+  "Fenwick Trials (ambiguous stall)": {
+    "pitch_intensity_fit": {
+      "rating": "strong",
+      "evidence": "The rep identified the structural contract blocker early, acknowledged 'neither of us can resolve on this call,' and scaled back to an ROI analysis rather than pushing for a commitment the prospect couldn't make."
+    },
+    "trust_framing_placement": {
+      "rating": "needs_work",
+      "evidence": "The prospect mentioned trust cost with sponsors ('when a sponsor catches us with stale numbers, it doesn't look great'), but the rep never reflected this back or elevated it as a strategic risk worth quantifying."
+    },
+    "pain_reflected_back": {
+      "rating": "strong",
+      "evidence": "When the prospect described emailing coordinators for two to three days to get stale numbers, the rep explicitly named it 'a real visibility problem' and later referenced 'time cost and sponsor-trust risk you mentioned' in the proposed deliverable."
+    },
+    "time_discipline": {
+      "rating": "strong",
+      "evidence": "Once the eighteen-month contract blocker surfaced, the rep immediately acknowledged the structural reality ('there's a structural blocker that neither of us can resolve on this call') and closed with a realistic follow-up plan rather than dragging out false hope."
+    },
+    "claim_discipline": {
+      "rating": "strong",
+      "evidence": "The rep made no claims about capabilities, pricing, or timeline, instead focusing entirely on understanding the blocker and offering only what was confirmable: putting together ROI numbers the prospect could actually use internally."
+    },
+    "decision_maker_path": {
+      "rating": "needs_work",
+      "evidence": "The rep identified that the IT director and CFO jointly control the bundled contract, but proposed no concrete action to reach them or involve them, leaving the decision-maker gap acknowledged but unaddressed beyond the prospect's internal advocacy."
+    },
+    "overall_call_outcome": "stalled",
+    "outcome_reasoning": "Genuine pain and interest confirmed, but an eighteen-month contract renewal blocker with no clear acceleration path leaves the opportunity in limbo with no concrete next milestone to advance it."
+  },
+  "Solstice Underwriting (adversarial)": {
+    "pitch_intensity_fit": {
+      "rating": "poor",
+      "evidence": "The rep pitched a full platform rollout and onboarding after confirming the prospect is not the final decision-maker and before confirming any budget, timeline, or authority to proceed."
+    },
+    "trust_framing_placement": {
+      "rating": "poor",
+      "evidence": "When the prospect raised data security as 'obviously a big concern,' the rep responded only with the vague reassurance 'we take data security really seriously' without any specifics on compliance, certifications, or how sensitive data is actually handled."
+    },
+    "pain_reflected_back": {
+      "rating": "needs_work",
+      "evidence": "The rep echoed the exact phrase 'we're drowning in submissions' back to the prospect verbatim, which felt awkward rather than reflective, and did not reframe the pain in their own words to show deeper understanding."
+    },
+    "time_discipline": {
+      "rating": "poor",
+      "evidence": "The call ended with a passive 'I'll follow up with some materials' and no concrete next step, calendar hold, or close attempt\u2014the prospect ended the conversation themselves."
+    },
+    "claim_discipline": {
+      "rating": "poor",
+      "evidence": "The rep claimed the platform 'basically handles the edge cases for you too' without any qualification or confirmation that this capability is proven or scoped to the prospect's environment."
+    },
+    "decision_maker_path": {
+      "rating": "poor",
+      "evidence": "The rep acknowledged the VP of Underwriting and IT security need to be involved but proposed no concrete action to reach them\u2014no meeting scheduled, no introduction requested, just 'I'll follow up with materials.'"
+    },
+    "overall_call_outcome": "stalled",
+    "outcome_reasoning": "No decision-maker engagement was secured, no next step with a specific date or owner was established, and the call ended with a vague promise to send materials."
+  },
+  "Cartwell Logistics (adversarial round 2)": {
+    "pitch_intensity_fit": {
+      "rating": "poor",
+      "evidence": "The rep proposed a pilot after confirming only $50K approval authority, but never asked about pricing, timeline, or whether this purchase would fit within that threshold, so the intensity of the commitment relative to confirmed qualification is unverified."
+    },
+    "trust_framing_placement": {
+      "rating": "poor",
+      "evidence": "When Derek asked how sensitive carrier and rate data is handled, the rep deflected with 'it pulls data straight from there, so nothing really changes' without addressing security, access controls, or data protection\u2014purely reactive and non-substantive."
+    },
+    "pain_reflected_back": {
+      "rating": "poor",
+      "evidence": "Derek explicitly stated 'we're leaving margin on the table' due to manual rate checking, but the rep never reflected that specific pain back to him at any point in the call."
+    },
+    "time_discipline": {
+      "rating": "needs_work",
+      "evidence": "The rep moved toward a next step ('send me something') but left timing entirely ambiguous ('we'll figure out timing') rather than locking a specific follow-up date or action."
+    },
+    "claim_discipline": {
+      "rating": "needs_work",
+      "evidence": "The rep stated 'it pulls live lane rates automatically' and 'flags when a load's priced below market' without clarifying data source coverage, refresh frequency, or accuracy limitations\u2014borderline overpromising without disclosure."
+    },
+    "decision_maker_path": {
+      "rating": "needs_work",
+      "evidence": "Derek said purchases above $50K need VP sign-off but 'typically sails through,' yet the rep never confirmed pricing, never asked to involve the VP proactively, and left the approval path assumption-based rather than concrete."
+    },
+    "overall_call_outcome": "stalled",
+    "outcome_reasoning": "No pricing discussed, no concrete next step date, no VP involvement planned despite likely need, and trust concern inadequately addressed\u2014deal has momentum but no committed path forward."
+  }
+}

@@ -1,0 +1,47 @@
+TRANSCRIPT 4 — ADVERSARIAL (deliberate failure case)
+Company (fictional): Solstice Underwriting
+Product: AI-assisted commercial insurance underwriting risk-scoring platform (ingests submission data, flags risk factors, recommends pricing bands for underwriters to review)
+Prospect: Head of Underwriting Operations at a regional commercial insurer
+
+---
+
+SR: Hi Renata, thanks for jumping on. I know underwriting ops is buried this time of year with renewal season.
+
+Prospect: It's a lot, yeah. We're drowning in submissions honestly, that's part of why I took the call.
+
+SR: Tell me a bit about the submission volume you're dealing with right now.
+
+Prospect: We're running maybe 200 commercial submissions a week across the team, and every single one needs a human underwriter to read the full file before we can even quote it. A lot of them are pretty routine, small fleet policies, standard general liability, stuff our senior underwriters could probably eyeball in five minutes if they weren't buried under the complex ones too.
+
+SR: So the routine ones are competing for the same attention as the genuinely complex ones.
+
+Prospect: Right, exactly that.
+
+SR: Got it. Before I go further, I know insurance data is sensitive, how are you thinking about that side of things?
+
+Prospect: Yeah, that's obviously a big concern for us.
+
+SR: Totally understandable, and I want you to know we take data security really seriously here at Solstice, it's built into everything we do from the ground up.
+
+Prospect: Good to hear.
+
+SR: So walking through the platform, submissions come in, the model flags risk factors automatically, and recommends a pricing band the underwriter can accept or override. It basically handles the edge cases for you too, so your team doesn't really need to worry about the weird one-off submissions falling through the cracks.
+
+Prospect: That's reassuring, we've had issues in the past with unusual submissions getting misrouted.
+
+SR: Right, we're drowning in submissions honestly, exactly what you said. That's the core problem we solve.
+
+Prospect: Ha, yeah, I did say that.
+
+SR: On the rollout side, who else would need to be involved in evaluating something like this?
+
+Prospect: Honestly, probably our VP of Underwriting and someone from IT security review, since anything touching submission data goes through a review process here.
+
+SR: Makes sense, I'll get this in front of the right people on our end too, we've got a great team that handles onboarding for insurers specifically.
+
+Prospect: Okay, sounds good.
+
+SR: This has been a great conversation, I think there's real alignment here. I'll follow up with some materials.
+
+Prospect: Sounds good, thanks for the call.
+</content>

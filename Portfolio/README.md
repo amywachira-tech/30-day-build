@@ -11,6 +11,7 @@ This isn't a generic "GTM automation" demo. It follows one real diagnosis throug
 - **`clay/`** — the Clay tables: enrichment, rule-based tier scoring, and the scoped AI personalization/sentiment columns (Days 11-12).
 - **`n8n/`** — exported n8n workflows: branching and error handling (Day 10), the Clay-to-n8n webhook integration (Day 13), and the database-write pipeline (Day 16-17).
 - **`Database/`** — the SQLite schema and scripts (`setup_db.py`, `insert_record.py`), the Flask API wrapper deployed to Render (`api_server.py`), and the pipeline log.
+- **`sentiment_classifier.py`, `eval_set.json`, `eval_results.json`, `run_eval.py`** — the labeled evaluation behind the 86.7% (13/15) sentiment-tagging accuracy figure cited in the requirements doc: independently written test cases, measured output, categorized errors.
 
 ## The system, in short
 

@@ -1,0 +1,19 @@
+# Environment / secrets — never commit these
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Local databases (keep schema/scripts in repo, not the data files themselves)
+*.db
+*.sqlite
+*.sqlite3
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+.vscode/

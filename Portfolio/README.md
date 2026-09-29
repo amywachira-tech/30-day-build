@@ -36,3 +36,22 @@ Documented in full in the artifact's Limitations section, in short: the database
 ## A real build failure, documented as it happened
 
 The original plan assumed n8n could call a local Python script directly via an Execute Command node. Testing that assumption directly showed n8n's cloud tier doesn't support local shell execution at all, a deliberate security boundary, not a bug. The fix, an HTTP-based bridge instead of a local command, is documented in the artifact's Build Notes section and is what's actually deployed and running today.
+---
+
+# Portfolio Artifact #2: Generalized Call-Scoring System
+
+A generalized B2B sales call-scoring system, built from fictional transcripts written for this exercise, not any real company's proprietary call data or scoring methodology. A transcript goes in, a Claude API call scores it across six defined dimensions plus an overall outcome, and returns structured JSON.
+
+**The strongest evidence in this artifact is the failure case, not the success rate.** A hypothesized systematic leniency bias, found while building ground-truth labels, was tested twice with independently designed adversarial transcripts. Both replication attempts failed to reproduce the bias. Revisiting the original mismatches under real scrutiny found only one genuine, checkable defect, not a broad pattern, a narrower and more honest claim than the one the investigation started with. Full detail in `PORTFOLIO_ARTIFACT_2_WRITEUP.md`.
+
+## What's in this repo
+
+- **`PORTFOLIO_ARTIFACT_2_WRITEUP.md`** — the full write-up, leading with the failure-case investigation.
+- **`call_scorer.py`** — the scoring script: one function per transcript call, structured JSON output, defensive markdown-fence stripping, empty-input guard.
+- **`transcript_1_clean_close.txt`** through **`transcript_5_adversarial2_CLEAN.txt`** — five fictional call transcripts spanning a clean close, a clean loss, an ambiguous stall, and two adversarial rounds.
+- **`ground_truth.json`** — independently reasoned labels, written before comparing to model output.
+- **`scoring_results.json`** — the scorer's actual output against all five transcripts.
+
+## Result
+
+15/18 dimension-level agreement (83%) against independent ground truth, 3/3 overall-outcome agreement. One verified defect found under adversarial testing: the model's own stated evidence contradicted its assigned rating on one dimension, a checkable inconsistency, not a subjective disagreement.

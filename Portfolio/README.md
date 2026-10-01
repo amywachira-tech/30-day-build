@@ -55,4 +55,4 @@ A generalized B2B sales call-scoring system, built from fictional transcripts wr
 
 ## Result
 
-15/18 dimension-level agreement (83%) against independent ground truth, 3/3 overall-outcome agreement. One verified defect found under adversarial testing: the model's own stated evidence contradicted its assigned rating on one dimension, a checkable inconsistency, not a subjective disagreement.
+13/18 dimension-level agreement (72%) against independent ground truth, 3/3 overall-outcome agreement. Four of five mismatches were genuine, checkable defects, not subjective disagreements, concentrated specifically on `trust_framing_placement` and `decision_maker_path`. Two independently designed adversarial tests, built to deliberately trigger the same pattern, both failed to reproduce it, a real finding about the limits of synthetic red-teaming against a bias that's actually present in ordinary data.

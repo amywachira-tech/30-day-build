@@ -197,4 +197,80 @@ What this buys VOYGR matters more than the raw hour count. Since 200 emails/week
 This estimate rests on assumptions that can't be verified against VOYGR's real data. The current 200 emails/week may already reflect a hard bandwidth ceiling rather than a choice, meaning freed time is more likely to convert into higher volume than fewer hours worked, which changes what "saving" means here. Reply and call volume, and therefore the sentiment-tagging and call-logging time estimates, are based on an assumed 10-15% reply rate that Section 1 already flags as unvalidated, so actual API cost and review time could move meaningfully once real data exists.
 
 ---
-*Document status: Portfolio Artifact #1, all four planning sections complete (Discovery through ROI, Day 14-15). Build begins Wed-Thu.*
+
+## Section 5: Build Notes and Known Limitations
+
+### Observability
+
+Every call to `insert_record.py` now logs to `pipeline_log.txt`, one line per attempt: timestamp, status (SUCCESS/FAILED), record type, and a detail message (the new `account_id`/`interaction_id` on success, or the specific error on failure). This directly answers the plan's own test: if something ran overnight and a share of records failed, the log file shows exactly how many and why, rather than requiring a guess.
+
+### Execute Command finding (real build failure, documented as it happened)
+
+The original architecture assumed n8n could call `insert_record.py` directly via an Execute Command node. Testing this directly (`python --version` as a minimal check) showed that **Execute Command is not available on n8n's cloud tier**, the node doesn't appear in the cloud instance's node picker at all. This is a deliberate security boundary, not a bug, a cloud service cannot be permitted to run arbitrary shell commands on its own servers.
+
+**Correct fix, identified but not yet built**: since n8n cloud communicates over HTTP (already proven via the Day 13 Clay-to-n8n webhook), the database-write step needs the same pattern in reverse: a small local API (Flask) wrapping the insert logic, exposed via a tunnel or, more durably, deployed to a free-tier host. This is scoped into Friday's planned deployment exercise rather than treated as unfinished work, the plan's own Friday task ("get one component running somewhere other than your laptop, e.g. a free-tier host like Render for the Python piece") is precisely this fix, not a separate follow-up.
+
+**Why this is documented rather than silently worked around**: correctly diagnosing a hosting constraint and identifying the right architectural fix is a genuine systems-integration finding, not just a blocker. Noting it here, with the reasoning, is stronger evidence of understanding than building the workaround without explaining why it was necessary.
+
+---
+
+## Section 6: Deployment
+
+### What was deployed
+
+The database-write component (`api_server.py`, a Flask wrapper around the SQLite insert logic) was deployed to Render's free tier, replacing the original Execute Command plan documented in Section 5. The service runs at a public URL (`https://three0-day-build.onrender.com`) and is reachable independent of the local machine, confirmed by closing the local development environment entirely and re-querying the live URL successfully.
+
+n8n itself required no separate deployment step: it already runs on n8n's own cloud tier (`amyw.app.n8n.cloud`), which is precisely why the original Execute Command approach failed, cloud n8n has no local shell or file-system access, the finding documented in Section 5.
+
+### Break-and-recover test
+
+Two deliberate failure tests were run against the live Render service, both via direct HTTP calls, not through n8n:
+
+1. **Valid JSON, missing required field** (`{"not_valid": true}`, no `record_type`): the service returned a structured error response (`{"status": "error", "message": "Unknown record_type 'None'"}`) rather than crashing.
+2. **Genuinely malformed JSON** (a plain string, not valid JSON at all): Flask's own request parser rejected it with an HTTP 400, again without crashing the service.
+
+After both failure tests, the live health-check endpoint (`GET /`) was re-queried and returned `{"status": "running"}` cleanly, confirming the service survived both bad inputs and continued serving normally, no restart required. This break/recover sequence happened *between* pipeline test runs (after the first 2 successful n8n-to-Render inserts, before the final 3), not as an isolated test run in a vacuum, confirming the service recovers mid-operation, not only from a clean idle state.
+
+---
+
+## Section 7: Result
+
+Five records were pushed through the full live pipeline (n8n Manual Trigger → Edit Fields → HTTP Request → Render → SQLite), spanning five different verticals (logistics, transportation/logistics, retail, finance/insurance, real estate) to exercise the vertical-tagging logic deliberately, not just prove a single happy path. Each run returned a distinct, correctly incrementing `account_id` (4 through 8), confirming genuine new inserts rather than a cached or repeated response.
+
+Note on numbering: `account_id` 1-3 came from earlier manual, file-based testing of `insert_record.py` during local development (Day 16), before the live n8n-to-Render pipeline existed. IDs 4-8 are the actual end-to-end pipeline test, the number that matters for this Result section.
+
+Sample size was deliberately trimmed from the plan's original 20-30 records to 5, a time-boxed decision made explicitly on Day 16 given a compressed week, not a hidden shortcut. Five records were judged sufficient to prove the mechanism works correctly; they are not sufficient to draw any conclusion about real-world reply or sentiment distribution, which was never the goal of this test.
+
+---
+
+## Section 8: Limitations
+
+- **Render free tier has an ephemeral filesystem.** `voygr.db` as deployed to Render is not guaranteed to persist across service restarts or redeploys. This is acceptable for proving the deployment mechanism today, but a real production deployment would need a persistent database (Render's paid disk tier, or an external hosted database) rather than a SQLite file on ephemeral storage.
+- **Flask's built-in development server is running in production.** Render's logs explicitly warn against this ("do not use it in a production deployment, use a production WSGI server instead"). Acceptable for a time-boxed exposure-level exercise; a real deployment would use Gunicorn or similar.
+- **Sample size was 5 records, not the planned 20-30**, a deliberate, stated time trade-off (see Section 7), not a quality concession, but genuinely too small to validate real reply-rate or sentiment-distribution assumptions from Section 4's ROI estimate.
+- **The Clay-to-n8n-to-Render chain has not been tested as one single unbroken run.** Clay's enrichment/AI columns (Sections 1-4) and the n8n-to-Render database write (this section) have each been proven working, but a single end-to-end run starting from Clay and finishing at the database write has not yet been executed in one pass.
+- **No authentication on the Render endpoint.** `/insert` is currently open to any caller with the URL. Fine for an exposure-level portfolio exercise; a real deployment would need at minimum an API key check.
+
+---
+
+## Section 9: Next Iteration
+
+- Move `voygr.db` to a persistent, non-ephemeral store (Render paid disk tier, or a hosted Postgres instance) to survive restarts.
+- Replace Flask's development server with a production WSGI server (Gunicorn) for the Render deployment.
+- Run the full Clay → n8n → Render chain as one genuinely unbroken pipeline, not three separately-proven segments.
+- Scale the end-to-end test from 5 records to the originally planned 20-30 once time allows, to get a real (if still small) read on reply and sentiment distribution.
+- Add basic authentication to the `/insert` endpoint before any real, non-test data would touch it.
+- Build the deferred `interactions` write path end to end (currently only `accounts` inserts have been tested live via n8n/Render; the `interactions` table and its account_id linkage were proven locally in Day 16 but not yet through the live deployed pipeline).
+
+---
+
+## Section 10: Friday Tradeoff Question, Applied
+
+**Component: sentiment tagging on email replies.**
+
+This is genuinely AI, not a fixed rule, and the reasoning is the same three-way split established on Day 11 (Wednesday) and reused throughout this artifact: enrichment and enumeration steps (Clay pulling company data, Render logging a row) are rule-based automation, no judgment required. Sentiment tagging is different because it requires interpreting open-ended, unstructured human text, a reply that says "not right now, check back in Q2" is not a keyword match away from "not interested," it requires understanding intent, which a fixed rule or keyword list cannot reliably do. This is precisely why Section 3 (Security) scoped the AI call narrowly to message-body text only, and why Section 1 (Requirements) explicitly requires human confirmation on every AI-suggested tag before it's treated as ground truth, the AI narrows and suggests, a person still makes the final call on anything that isn't a clear-cut automatable pattern.
+
+By contrast, the tier-scoring logic built in Section 2's architecture (Enterprise/Mid-Market/SMB, based on headcount and site count thresholds) is correctly a fixed rule, not AI, because it's a deterministic numeric comparison with no ambiguity to interpret, exactly the distinction this whole curriculum has been testing for since Week 3.
+
+---
+*Document status: Portfolio Artifact #1 complete. All ten sections written: Problem, Discovery/Requirements, Architecture, Security, ROI, Build Notes, Deployment, Result, Limitations, Next Iteration, plus the Friday tradeoff analysis. Ready for README and final push.*

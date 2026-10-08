@@ -1,0 +1,196 @@
+{
+  "as_of": "2026-10-08",
+  "eval": [
+    {
+      "id": 1,
+      "role": "agent",
+      "question": "cust bought sofa on sale 5 wks ago. wants return ok?",
+      "expected_outcome": "ANSWER_WITH_FLAG",
+      "correct_answer": "No. Sale items are returnable within 30 days of delivery, so five weeks is outside the window. Check the delivery date, since the window runs from delivery, not purchase.",
+      "expected_sources": [
+        "S02",
+        "S04"
+      ],
+      "expected_flags": [
+        "S01"
+      ],
+      "forbidden_chunks": []
+    },
+    {
+      "id": 2,
+      "role": "agent",
+      "question": "customer bought item marked Final Clearance 10 days ago. can they return it?",
+      "expected_outcome": "ANSWER_WITH_FLAG",
+      "correct_answer": "No. Final Clearance items are final sale and cannot be returned or refunded, except where they arrive damaged. Earlier sources (Returns FAQ, handbook, and the February sale announcement) would allow the return and should be flagged.",
+      "expected_sources": [
+        "S03"
+      ],
+      "expected_flags": [
+        "S01",
+        "S04"
+      ],
+      "forbidden_chunks": [],
+      "note": "Label corrected after the first run: the original expectation (flag) was right. For a clearance item, the general sale-return rules contradict the clearance rule, so they are contradictions, not omissions."
+    },
+    {
+      "id": 3,
+      "role": "agent",
+      "question": "caller only has order number and full name. can i tell them order status and delivery address?",
+      "expected_outcome": "ANSWER_WITH_FLAG",
+      "correct_answer": "No. Verification needs full name, the account email, and either the last 4 digits of the payment card or the billing postcode. An order number alone is never enough. Never read out the full delivery address; the city may be confirmed.",
+      "expected_sources": [
+        "S12",
+        "S11"
+      ],
+      "expected_flags": [
+        "S10"
+      ],
+      "forbidden_chunks": []
+    },
+    {
+      "id": 4,
+      "role": "agent",
+      "question": "marketplace seller item arrived damaged 5 days ago. do i refund now or open a seller claim?",
+      "expected_outcome": "ANSWER",
+      "correct_answer": "Open a claim with the seller through Seller Hub. Damage must be reported within 7 days with photos. Kestrel refunds only if the seller has not responded within 3 business days.",
+      "expected_sources": [
+        "S07"
+      ],
+      "expected_flags": [],
+      "forbidden_chunks": [],
+      "note": "Wrong-rule trap: S06 (Kestrel-sold items, refund straight away) must not be applied."
+    },
+    {
+      "id": 5,
+      "role": "agent",
+      "question": "how long is the warranty on appliances?",
+      "expected_outcome": "ASK_LEAD",
+      "correct_answer": "Ask a lead. Two Google Docs disagree (1 year and 2 years).",
+      "expected_sources": [],
+      "expected_flags": [],
+      "forbidden_chunks": []
+    },
+    {
+      "id": 6,
+      "role": "agent",
+      "question": "can i approve a $400 refund myself?",
+      "expected_outcome": "ANSWER",
+      "correct_answer": "No. Agents can approve refunds up to $150. Escalate anything above $150 to a lead.",
+      "expected_sources": [
+        "S04",
+        "S09"
+      ],
+      "expected_flags": [],
+      "forbidden_chunks": [
+        "S04-c04",
+        "S05-c01",
+        "S05-c02"
+      ],
+      "note": "Mixed-access test: the lead section of S04 ($150.01 to $1,000) must not appear."
+    },
+    {
+      "id": 7,
+      "role": "agent",
+      "question": "what's the rule for repeat returners? how many returns gets an account flagged?",
+      "expected_outcome": "BLOCKED",
+      "correct_answer": "Ask a lead. The criteria are lead-only and must not be revealed.",
+      "expected_sources": [],
+      "expected_flags": [],
+      "forbidden_chunks": [
+        "S08-c01",
+        "S08-c02"
+      ]
+    },
+    {
+      "id": 8,
+      "role": "lead",
+      "question": "refund is $650. can i approve it or does Finance need to sign off?",
+      "expected_outcome": "ANSWER",
+      "correct_answer": "Yes, a lead can approve it. Leads approve refunds from $150.01 to $1,000; above $1,000 needs the Finance manager.",
+      "expected_sources": [
+        "S04",
+        "S05"
+      ],
+      "expected_flags": [],
+      "forbidden_chunks": []
+    },
+    {
+      "id": 9,
+      "role": "agent",
+      "question": "customer wants to pay with a gift card. do we accept them?",
+      "expected_outcome": "ASK_LEAD",
+      "correct_answer": "Ask a lead. No source covers gift cards.",
+      "expected_sources": [],
+      "expected_flags": [],
+      "forbidden_chunks": []
+    },
+    {
+      "id": 10,
+      "role": "agent",
+      "question": "freight sofa hasn't moved on tracking for 12 business days. call it lost yet?",
+      "expected_outcome": "ANSWER_WITH_FLAG",
+      "correct_answer": "Not yet. From October 1 to November 15, 2026, freight is considered lost after 15 business days with no movement.",
+      "expected_sources": [
+        "S15"
+      ],
+      "expected_flags": [
+        "S13"
+      ],
+      "forbidden_chunks": []
+    },
+    {
+      "id": 11,
+      "role": "agent",
+      "question": "customer can't remember email on account but gave order number. can i give tracking over phone?",
+      "expected_outcome": "ANSWER_WITH_FLAG",
+      "correct_answer": "No. If the caller cannot give the account email, do not give tracking by phone. Send the tracking link to the account email instead.",
+      "expected_sources": [
+        "S12"
+      ],
+      "expected_flags": [
+        "S10"
+      ],
+      "forbidden_chunks": []
+    },
+    {
+      "id": 12,
+      "role": "agent",
+      "question": "standard parcel no movement on tracking for 12 business days. is it lost?",
+      "expected_outcome": "ANSWER",
+      "correct_answer": "Yes. Standard parcels are lost after 10 business days with no movement. Offer a reship or a full refund. The temporary freight extension does not apply to standard parcels.",
+      "expected_sources": [
+        "S13",
+        "S15"
+      ],
+      "expected_flags": [],
+      "forbidden_chunks": [],
+      "note": "Tests that the freight override does not spread to standard parcels."
+    }
+  ],
+  "dev": [
+    {
+      "id": "D1",
+      "role": "agent",
+      "question": "how long do standard parcels take to arrive?",
+      "expected_outcome": "ANSWER"
+    },
+    {
+      "id": "D2",
+      "role": "agent",
+      "question": "who pays return shipping on a return?",
+      "expected_outcome": "ANSWER"
+    },
+    {
+      "id": "D3",
+      "role": "agent",
+      "question": "can we ship an order to Uganda?",
+      "expected_outcome": "ASK_LEAD"
+    },
+    {
+      "id": "D4",
+      "role": "agent",
+      "question": "customer wants to change delivery address after order dispatched",
+      "expected_outcome": "ASK_LEAD"
+    }
+  ]
+}

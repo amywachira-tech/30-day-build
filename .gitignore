@@ -18,3 +18,5 @@ __pycache__/
 Thumbs.db
 .vscode/
 Portfolio/artifact3/embeddings.npy
+
+Portfolio/artifact3/flags_log.jsonl

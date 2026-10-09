@@ -1,6 +1,6 @@
-# 30-Day Build
+# AI Workflow Portfolio
 
-A 30-day technical build in Python, APIs, SQL, workflow automation and applied AI, producing three portfolio artifacts. Each artifact has working code, a labelled evaluation, and a written account of what failed and why.
+Three AI-enabled systems built in Python, covering APIs, SQL, workflow automation and applied AI. Each has working code, a labelled evaluation, and a written account of what failed and why.
 
 ## Portfolio
 

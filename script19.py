@@ -44,7 +44,7 @@ Prospect: {name}, {company}"""
             "INSERT INTO classifications (name, company, fit_score, reasoning) VALUES (?, ?, ?, ?)",
             (name, company, parsed["fit_score"], parsed["reasoning"])
         )
-        print(f"Stored: {name} — {parsed['fit_score']}")
+        print(f"Stored: {name} - {parsed['fit_score']}")
     except json.JSONDecodeError:
         print(f"Skipped {name}: model didn't return valid JSON")
 

@@ -42,10 +42,10 @@ Useful signal from calls and email replies dies in the SDR's memory instead of b
 
 ### Systems That Need to Connect
 
-- **Enrichment tool (Clay)** — for list-building and lead data enrichment.
-- **Sales engagement/sequencing platform** (e.g. Instantly or Smartlead) — for sending, and for auto-tracking sends, opens, and replies; this is a distinct system from Clay, not the same tool.
-- **Call notes capture** — a lightweight entry point for the SDR, not a full transcription tool at current volume.
-- **Central log/database** — where enrichment, reply sentiment, and call notes converge into one place per account, replacing the failed CRM's role without recreating its manual burden.
+- **Enrichment tool (Clay)**: for list-building and lead data enrichment.
+- **Sales engagement/sequencing platform** (e.g. Instantly or Smartlead): for sending, and for auto-tracking sends, opens, and replies; this is a distinct system from Clay, not the same tool.
+- **Call notes capture**: a lightweight entry point for the SDR, not a full transcription tool at current volume.
+- **Central log/database**: where enrichment, reply sentiment, and call notes converge into one place per account, replacing the failed CRM's role without recreating its manual burden.
 
 ### Where a Human Must Intervene
 
@@ -75,23 +75,23 @@ Given 20 test email replies, the system suggests a sentiment tag (positive/neutr
 
 Every step in the pipeline is categorized as one of three types, kept deliberately coarse for this design-level document (a real team's tooling would subdivide automation further, e.g. scheduled job vs. webhook-triggered, but that belongs in an implementation spec, not here):
 
-- **Automation** — rule-based, no judgment involved (Clay enrichment, Instantly sending, inbox receiving a reply, the database write itself).
-- **AI** — genuine judgment or generation (drafting personalization, suggesting a sentiment tag).
-- **Human** — cannot or should not be automated at this stage (pulling the lead, entering it into Clay, confirming personalization, confirming the sentiment tag, making the call and logging notes).
+- **Automation**: rule-based, no judgment involved (Clay enrichment, Instantly sending, inbox receiving a reply, the database write itself).
+- **AI**: genuine judgment or generation (drafting personalization, suggesting a sentiment tag).
+- **Human**: cannot or should not be automated at this stage (pulling the lead, entering it into Clay, confirming personalization, confirming the sentiment tag, making the call and logging notes).
 
 ### Pipeline stages
 
-1. Pull lead from contact list — Human
-2. Add lead into Clay — Human
-3. Clay enrichment (company/profile data) — Automation
-4. AI drafts personalization — AI
-5. SDR confirms personalization — Human
-6. Instantly sends email — Automation
-7. Reply arrives in inbox — Automation
-8. AI suggests sentiment tag (positive/neutral/negative) — AI
-9. Human confirms tag — Human
-10. Call happens, notes logged — Human
-11. Data written to database — Automation
+1. Pull lead from contact list: Human
+2. Add lead into Clay: Human
+3. Clay enrichment (company/profile data): Automation
+4. AI drafts personalization: AI
+5. SDR confirms personalization: Human
+6. Instantly sends email: Automation
+7. Reply arrives in inbox: Automation
+8. AI suggests sentiment tag (positive/neutral/negative): AI
+9. Human confirms tag: Human
+10. Call happens, notes logged: Human
+11. Data written to database: Automation
 
 Feeds back into the next list-building round (vertical-level performance data informs which verticals get prioritized).
 
@@ -101,17 +101,17 @@ Feeds back into the next list-building round (vertical-level performance data in
 
 Two linked tables, same pattern as the earlier SQLite work, not a new tool.
 
-**`accounts`** — one row per company: `account_id`, `company_name`, `vertical`, `source`, `enriched_data`, `date_added`.
+**`accounts`**: one row per company: `account_id`, `company_name`, `vertical`, `source`, `enriched_data`, `date_added`.
 
-**`interactions`** — one row per email reply or call, linked to `accounts` via `account_id`: `interaction_id`, `type` (email_reply/call), `date`, `notes`, `sentiment_tag`, `human_confirmed`, `outcome`.
+**`interactions`**: one row per email reply or call, linked to `accounts` via `account_id`: `interaction_id`, `type` (email_reply/call), `date`, `notes`, `sentiment_tag`, `human_confirmed`, `outcome`.
 
 Plain-language explanation (for non-technical stakeholders): think of it like two connected spreadsheets. The first is a simple list of companies, one row each, with basic info about who they are. The second is a log of everything that happens with each company, every reply, every call, each entry pointing back to which company it belongs to. Keeping them separate (the same way you'd keep a customer list separate from a call log) means questions like "which industry replies most positively" can be answered by counting log entries per company, without manually tallying anything. It's the same idea as a CRM, just lightweight enough that a two-person team will actually keep it updated, which is what killed their last CRM attempt.
 
 ### Data transfer: what's automated vs. manual
 
-- **Accounts table fills itself** — Clay's enrichment output is pushed in via API the moment a lead is enriched, no typing.
-- **Email interactions are mostly automated** — the sequencing platform logs sends and replies automatically, AI suggests the sentiment tag automatically. The SDR's only action is one click to confirm or correct the tag.
-- **Call notes are the one genuinely manual entry point, by design, not a gap** — nothing currently captures call content, so the SDR types a short note after each call. The old CRM asked for 8-9 fields per interaction and collapsed under that load; this asks for one field, with everything else auto-populated around it.
+- **Accounts table fills itself**: Clay's enrichment output is pushed in via API the moment a lead is enriched, no typing.
+- **Email interactions are mostly automated**: the sequencing platform logs sends and replies automatically, AI suggests the sentiment tag automatically. The SDR's only action is one click to confirm or correct the tag.
+- **Call notes are the one genuinely manual entry point, by design, not a gap**: nothing currently captures call content, so the SDR types a short note after each call. The old CRM asked for 8-9 fields per interaction and collapsed under that load; this asks for one field, with everything else auto-populated around it.
 
 ---
 

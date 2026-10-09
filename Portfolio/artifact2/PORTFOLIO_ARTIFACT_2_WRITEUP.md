@@ -43,11 +43,11 @@ The six dimensions are a generalized structure, not a copy of any specific compa
 
 Five fictional companies, none real, each built with deliberate texture rather than generic dialogue:
 
-1. **Meridian Sensing** (cold chain IoT monitoring) — clean close
-2. **Harrow Analytics** (predictive maintenance) — clean loss, correctly disqualified by the rep mid-call
-3. **Fenwick Trials** (clinical trial management) — ambiguous stall, genuine interest blocked by a structural contract issue
-4. **Solstice Underwriting** (adversarial round 1) — baited with explicit but hollow language
-5. **Cartwell Logistics** (adversarial round 2) — baited with omission-via-adjacency and hedged/conditional authority claims
+1. **Meridian Sensing** (cold chain IoT monitoring): clean close
+2. **Harrow Analytics** (predictive maintenance): clean loss, correctly disqualified by the rep mid-call
+3. **Fenwick Trials** (clinical trial management): ambiguous stall, genuine interest blocked by a structural contract issue
+4. **Solstice Underwriting** (adversarial round 1): baited with explicit but hollow language
+5. **Cartwell Logistics** (adversarial round 2): baited with omission-via-adjacency and hedged/conditional authority claims
 
 ## Scoring script
 

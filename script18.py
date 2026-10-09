@@ -34,4 +34,4 @@ raw = raw.strip()
 
 parsed = json.loads(raw)
 results.append({"name": name, "company": company, **parsed})
-print(f"{name} ({company}): {parsed['fit_score']} — {parsed['reasoning']}")
+print(f"{name} ({company}): {parsed['fit_score']} - {parsed['reasoning']}")

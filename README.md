@@ -1,6 +1,6 @@
 # 30-Day Build
 
-A self-directed technical build covering Python, APIs, SQL, workflow automation and applied AI, ending in three portfolio artifacts. Each artifact has working code, a labelled evaluation, and a written account of what failed and why.
+A 30-day technical build in Python, APIs, SQL, workflow automation and applied AI, producing three portfolio artifacts. Each artifact has working code, a labelled evaluation, and a written account of what failed and why.
 
 ## Portfolio
 

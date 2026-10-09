@@ -1,7 +1,7 @@
 import json
 from sentiment_classifier import classify_reply
 
-# Categorize each miss into one of the four buckets from the Week 5 plan.
+# Categorize each miss into one of the four buckets from the evaluation plan.
 # This mapping is a starting point, not gospel, you should read each miss
 # yourself and override the category if the automatic guess looks wrong.
 ERROR_CATEGORIES = ["bad_data", "ambiguous_input", "model_overconfidence", "prompt_issue"]

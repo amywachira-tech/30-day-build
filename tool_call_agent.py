@@ -6,7 +6,7 @@ client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 # --- Step 1: Define the actual Python functions the tools will call ---
 def lookup_company_tier(company_name, headcount):
-    """Same logic as your Clay tier-scoring formula from Day 11, just in Python."""
+    """Same logic as the Clay tier-scoring formula, in Python."""
     if headcount > 200:
         return f"{company_name} is Enterprise tier."
     elif headcount > 20:

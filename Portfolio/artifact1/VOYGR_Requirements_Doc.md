@@ -99,7 +99,7 @@ Feeds back into the next list-building round (vertical-level performance data in
 
 ### Database design
 
-Two linked tables, same pattern as the Week 2 SQLite work, not a new tool.
+Two linked tables, same pattern as the earlier SQLite work, not a new tool.
 
 **`accounts`** — one row per company: `account_id`, `company_name`, `vertical`, `source`, `enriched_data`, `date_added`.
 
@@ -208,7 +208,7 @@ Every call to `insert_record.py` now logs to `pipeline_log.txt`, one line per at
 
 The original architecture assumed n8n could call `insert_record.py` directly via an Execute Command node. Testing this directly (`python --version` as a minimal check) showed that **Execute Command is not available on n8n's cloud tier**, the node doesn't appear in the cloud instance's node picker at all. This is a deliberate security boundary, not a bug, a cloud service cannot be permitted to run arbitrary shell commands on its own servers.
 
-**Correct fix, identified but not yet built**: since n8n cloud communicates over HTTP (already proven via the Day 13 Clay-to-n8n webhook), the database-write step needs the same pattern in reverse: a small local API (Flask) wrapping the insert logic, exposed via a tunnel or, more durably, deployed to a free-tier host. This is scoped into Friday's planned deployment exercise rather than treated as unfinished work, the plan's own Friday task ("get one component running somewhere other than your laptop, e.g. a free-tier host like Render for the Python piece") is precisely this fix, not a separate follow-up.
+**Correct fix, identified but not yet built**: since n8n cloud communicates over HTTP (already proven via the Clay-to-n8n webhook), the database-write step needs the same pattern in reverse: a small local API (Flask) wrapping the insert logic, exposed via a tunnel or, more durably, deployed to a free-tier host. This was scoped into the deployment step that followed, which ran the Python component on a free-tier host (Render), so it was handled as part of the build rather than left as unfinished work.
 
 **Why this is documented rather than silently worked around**: correctly diagnosing a hosting constraint and identifying the right architectural fix is a genuine systems-integration finding, not just a blocker. Noting it here, with the reasoning, is stronger evidence of understanding than building the workaround without explaining why it was necessary.
 
@@ -237,19 +237,19 @@ After both failure tests, the live health-check endpoint (`GET /`) was re-querie
 
 Five records were pushed through the full live pipeline (n8n Manual Trigger → Edit Fields → HTTP Request → Render → SQLite), spanning five different verticals (logistics, transportation/logistics, retail, finance/insurance, real estate) to exercise the vertical-tagging logic deliberately, not just prove a single happy path. Each run returned a distinct, correctly incrementing `account_id` (4 through 8), confirming genuine new inserts rather than a cached or repeated response.
 
-Note on numbering: `account_id` 1-3 came from earlier manual, file-based testing of `insert_record.py` during local development (Day 16), before the live n8n-to-Render pipeline existed. IDs 4-8 are the actual end-to-end pipeline test, the number that matters for this Result section.
+Note on numbering: `account_id` 1-3 came from earlier manual, file-based testing of `insert_record.py` during local development, before the live n8n-to-Render pipeline existed. IDs 4-8 are the actual end-to-end pipeline test, the number that matters for this Result section.
 
-Sample size was deliberately trimmed from the plan's original 20-30 records to 5, a time-boxed decision made explicitly on Day 16 given a compressed week, not a hidden shortcut. Five records were judged sufficient to prove the mechanism works correctly; they are not sufficient to draw any conclusion about real-world reply or sentiment distribution, which was never the goal of this test.
+Sample size was deliberately trimmed from the plan's original 20-30 records to 5, a time-boxed decision made explicitly during the build and recorded here, not a hidden shortcut. Five records were judged sufficient to prove the mechanism works correctly; they are not sufficient to draw any conclusion about real-world reply or sentiment distribution, which was never the goal of this test.
 
 ---
 
 ## Section 8: Limitations
 
 - **Render free tier has an ephemeral filesystem.** `voygr.db` as deployed to Render is not guaranteed to persist across service restarts or redeploys. This is acceptable for proving the deployment mechanism today, but a real production deployment would need a persistent database (Render's paid disk tier, or an external hosted database) rather than a SQLite file on ephemeral storage.
-- **Flask's built-in development server is running in production.** Render's logs explicitly warn against this ("do not use it in a production deployment, use a production WSGI server instead"). Acceptable for a time-boxed exposure-level exercise; a real deployment would use Gunicorn or similar.
+- **Flask's built-in development server is running in production.** Render's logs explicitly warn against this ("do not use it in a production deployment, use a production WSGI server instead"). Acceptable for a time-boxed prototype; a real deployment would use Gunicorn or similar.
 - **Sample size was 5 records, not the planned 20-30**, a deliberate, stated time trade-off (see Section 7), not a quality concession, but genuinely too small to validate real reply-rate or sentiment-distribution assumptions from Section 4's ROI estimate.
 - **The Clay-to-n8n-to-Render chain has not been tested as one single unbroken run.** Clay's enrichment/AI columns (Sections 1-4) and the n8n-to-Render database write (this section) have each been proven working, but a single end-to-end run starting from Clay and finishing at the database write has not yet been executed in one pass.
-- **No authentication on the Render endpoint.** `/insert` is currently open to any caller with the URL. Fine for an exposure-level portfolio exercise; a real deployment would need at minimum an API key check.
+- **No authentication on the Render endpoint.** `/insert` is currently open to any caller with the URL. Acceptable for a prototype; a real deployment would need at minimum an API key check.
 
 ---
 
@@ -260,17 +260,17 @@ Sample size was deliberately trimmed from the plan's original 20-30 records to 5
 - Run the full Clay → n8n → Render chain as one genuinely unbroken pipeline, not three separately-proven segments.
 - Scale the end-to-end test from 5 records to the originally planned 20-30 once time allows, to get a real (if still small) read on reply and sentiment distribution.
 - Add basic authentication to the `/insert` endpoint before any real, non-test data would touch it.
-- Build the deferred `interactions` write path end to end (currently only `accounts` inserts have been tested live via n8n/Render; the `interactions` table and its account_id linkage were proven locally in Day 16 but not yet through the live deployed pipeline).
+- Build the deferred `interactions` write path end to end (currently only `accounts` inserts have been tested live via n8n/Render; the `interactions` table and its account_id linkage were proven locally but not yet through the live deployed pipeline).
 
 ---
 
-## Section 10: Friday Tradeoff Question, Applied
+## Section 10: Tradeoff Question, Applied
 
 **Component: sentiment tagging on email replies.**
 
-This is genuinely AI, not a fixed rule, and the reasoning is the same three-way split established on Day 11 (Wednesday) and reused throughout this artifact: enrichment and enumeration steps (Clay pulling company data, Render logging a row) are rule-based automation, no judgment required. Sentiment tagging is different because it requires interpreting open-ended, unstructured human text, a reply that says "not right now, check back in Q2" is not a keyword match away from "not interested," it requires understanding intent, which a fixed rule or keyword list cannot reliably do. This is precisely why Section 3 (Security) scoped the AI call narrowly to message-body text only, and why Section 1 (Requirements) explicitly requires human confirmation on every AI-suggested tag before it's treated as ground truth, the AI narrows and suggests, a person still makes the final call on anything that isn't a clear-cut automatable pattern.
+This is genuinely AI, not a fixed rule, and the reasoning is the same three-way split established during the Clay enrichment work and reused throughout this artifact: enrichment and enumeration steps (Clay pulling company data, Render logging a row) are rule-based automation, no judgment required. Sentiment tagging is different because it requires interpreting open-ended, unstructured human text, a reply that says "not right now, check back in Q2" is not a keyword match away from "not interested," it requires understanding intent, which a fixed rule or keyword list cannot reliably do. This is precisely why Section 3 (Security) scoped the AI call narrowly to message-body text only, and why Section 1 (Requirements) explicitly requires human confirmation on every AI-suggested tag before it's treated as ground truth, the AI narrows and suggests, a person still makes the final call on anything that isn't a clear-cut automatable pattern.
 
-By contrast, the tier-scoring logic built in Section 2's architecture (Enterprise/Mid-Market/SMB, based on headcount and site count thresholds) is correctly a fixed rule, not AI, because it's a deterministic numeric comparison with no ambiguity to interpret, exactly the distinction this whole curriculum has been testing for since Week 3.
+By contrast, the tier-scoring logic built in Section 2's architecture (Enterprise/Mid-Market/SMB, based on headcount and site count thresholds) is correctly a fixed rule, not AI, because it's a deterministic numeric comparison with no ambiguity to interpret, exactly the distinction this design applies throughout.
 
 ---
-*Document status: Portfolio Artifact #1 complete. All ten sections written: Problem, Discovery/Requirements, Architecture, Security, ROI, Build Notes, Deployment, Result, Limitations, Next Iteration, plus the Friday tradeoff analysis. Ready for README and final push.*
+*Document status: Portfolio Artifact #1 complete. All ten sections written: Problem, Discovery/Requirements, Architecture, Security, ROI, Build Notes, Deployment, Result, Limitations, Next Iteration, plus the tradeoff analysis. Ready for README and final push.*

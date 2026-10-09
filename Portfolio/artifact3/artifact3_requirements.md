@@ -214,7 +214,7 @@ Errors are categorized by the step that failed (search, model judgment, quote ch
 - **No rollout late November through December** (Black Friday and holiday peak). If the pilot is not ready for mid-November, it moves to January.
 - After requirements review, there are about four weeks to mid-November, and Legal and IT Security review take part of that. A narrower pilot that is ready in November is preferred over a broader one that slips.
 - **Commercial test:** the pilot must fit within about $15,000, and ongoing cost must be a small fraction of the $6,000 to $6,500 per month in lead time.
-- **Open:** pilot and ongoing cost estimate. Requires an estimate of daily question volume. To be completed in the Friday write-up.
+- **Open:** pilot and ongoing cost estimate. Requires an estimate of daily question volume. To be completed in the write-up.
 
 ---
 

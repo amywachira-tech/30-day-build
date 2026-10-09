@@ -24,7 +24,7 @@ Two independently designed, deliberately targeted replication attempts both fail
 
 ## What this is
 
-A generalized B2B sales call-scoring system: a transcript goes in, a Claude API call scores it across six defined dimensions plus an overall outcome, and returns structured JSON. Built from fictional transcripts written for this exercise, not from any real company's proprietary call data or scoring methodology.
+A generalized B2B sales call-scoring system: a transcript goes in, a Claude API call scores it across six defined dimensions plus an overall outcome, and returns structured JSON. Built from fictional transcripts written for this project, not from any real company's proprietary call data or scoring methodology.
 
 ## Rubric design
 

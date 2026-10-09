@@ -39,7 +39,7 @@ def classify_reply(reply_text):
     raw_text = message.content[0].text.strip()
 
     # Defensive fence-stripping. Claude wraps JSON in markdown code fences
-    # even when told not to, this bit us in Week 2, expect it here too.
+    # even when told not to, this happened in earlier API work, expect it here too.
     if raw_text.startswith("```"):
         raw_text = raw_text.strip("`")
         if raw_text.startswith("json"):

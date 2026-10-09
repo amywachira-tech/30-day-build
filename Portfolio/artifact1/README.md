@@ -35,12 +35,12 @@ The original plan had n8n call a local Python script through an Execute Command 
 
 | File | Contents |
 |---|---|
-| `VOYGR_Requirements_Doc.md` | The full write-up in ten sections: requirements, architecture, security, ROI, build notes, deployment, result, limitations, next iteration, and the Friday tradeoff question |
+| `VOYGR_Requirements_Doc.md` | The full write-up in ten sections: requirements, architecture, security, ROI, build notes, deployment, result, limitations, next iteration, and a tradeoff analysis |
 | `voygr_pipeline_architecture.png` | Pipeline diagram, each stage marked as rule-based, AI judgment or human action |
 | `sentiment_classifier.py`, `run_eval.py` | The classifier and its evaluation script |
 | `eval_set.json`, `eval_results.json` | The 15 labelled replies and the measured results |
 
-Supporting work lives at the repository root: `Database/` (SQLite scripts and the deployed Flask API), `n8n/` (exported workflows from Days 9 and 10) and `Clay/` (a screenshot of the Day 11 enrichment table).
+Supporting work lives at the repository root: `Database/` (SQLite scripts and the deployed Flask API), `n8n/` (exported workflows covering a basic workflow and branching with error handling) and `Clay/` (a screenshot of a Clay enrichment table).
 
 ## Running the evaluation
 

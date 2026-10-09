@@ -85,7 +85,7 @@ def score_call(transcript_text):
 
     raw_text = message.content[0].text.strip()
 
-    # Same defensive fence-stripping as the Week 5 sentiment classifier.
+    # Same defensive fence-stripping as the sentiment classifier.
     # Claude wraps JSON in markdown fences even when told not to, expect this.
     if raw_text.startswith("```"):
         raw_text = raw_text.strip("`")

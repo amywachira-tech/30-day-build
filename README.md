@@ -18,7 +18,7 @@ Start with any artifact's README. Each one links to its full write-up.
 |---|---|
 | `Portfolio/` | The three artifacts, one folder each |
 | `Database/` | SQLite scripts and the Flask API deployed to Render for Artifact 1 |
-| `n8n/` | Exported n8n workflows from the automation exercises (Days 9 and 10) |
-| `Clay/` | Screenshot of a Clay enrichment table from Day 11 |
-| `week5_tool_call.py` | Claude tool-calling exercise (Week 5) |
-| `script*.py`, `*.json`, `scratch.py` | Early Python, JSON and SQL practice (Weeks 1 and 2) |
+| `n8n/` | Exported n8n workflows: a basic workflow, and branching with error handling |
+| `Clay/` | Screenshot of a Clay enrichment table |
+| `tool_call_agent.py` | Claude tool-calling agent loop with two tools |
+| `script*.py`, `*.json`, `scratch.py` | Python, JSON and SQL groundwork |

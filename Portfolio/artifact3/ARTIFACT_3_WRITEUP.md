@@ -186,7 +186,7 @@ See the threshold decision in section 4: an unanswerable question scored 0.442 a
 
 ---
 
-## 10. Friday tradeoff question
+## 10. Tradeoff question
 
 The main tradeoff is answer coverage versus the risk of giving a wrong answer. The system refers a question to a lead in three places: when nothing in the corpus is clearly relevant (the similarity threshold), when the model finds the sources do not answer the question, and when sources at the same level of authority disagree. Each referral protects against a wrong answer at the cost of a question the leads must handle. The threshold mainly controls coverage; wrong answers are prevented by the model's check, the quote verification and the conflict rule.
 

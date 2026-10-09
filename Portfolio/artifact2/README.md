@@ -1,6 +1,6 @@
 # Artifact 2: Generalized Call-Scoring System
 
-A B2B sales-call scoring system built on fictional transcripts written for this exercise. A transcript goes in, a Claude API call scores it on six dimensions plus an overall outcome, and structured JSON comes out.
+A B2B sales-call scoring system built on fictional transcripts written for this project. A transcript goes in, a Claude API call scores it on six dimensions plus an overall outcome, and structured JSON comes out.
 
 Dimensions: `pitch_intensity_fit`, `trust_framing_placement`, `pain_reflected_back`, `time_discipline`, `claim_discipline`, `decision_maker_path`.
 

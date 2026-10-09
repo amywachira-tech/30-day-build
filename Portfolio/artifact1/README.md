@@ -2,6 +2,8 @@
 
 An end-to-end solution design applied to the stated problem of a real company: VOYGR, a location and POI data validation and enrichment company selling across 11 verticals with no structured sales system behind its outbound motion.
 
+This is a case study. VOYGR did not commission or use this work.
+
 The work follows one diagnosis through to a deployed system: two mock discovery conversations, a requirements document, a scored architecture, a security review, an ROI estimate, a build, a deployment, and a record of what was and was not finished.
 
 ## The system

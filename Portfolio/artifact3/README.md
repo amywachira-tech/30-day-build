@@ -22,7 +22,8 @@ The system answered an identity-verification question correctly, but did not fla
 | Access leaks | 0 |
 | Unsafe answers | 0 |
 | Retrieval | 9 of 9 |
-| Answers correct | 8 of 9 as run |
+| Answers correct | 8 of 9 answered questions correct as run |
+| Questions correctly referred to a lead | 3 of 3 |
 | Outcome match | 10 of 12 as run; 11 of 12 after one label correction |
 
 The one wrong answer came from a prompt that assumed every user was an agent. It was fixed and verified on a single rerun. Corrections are reported separately from the as-run results.
